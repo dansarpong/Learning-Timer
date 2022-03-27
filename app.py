@@ -1,3 +1,4 @@
+from timeit import repeat
 import winsound, time
 
 # sound 1
@@ -20,8 +21,8 @@ def nextBeep():
         freq-= 100
         dur-= 50
 
-# main study schedule
-def main(study=3):
+# Alarm system
+def timer(study=3):
     #initial 2 minutes prep
     print("2 minutes to prepare for study session begins!\n")
     time.sleep(110)
@@ -56,17 +57,25 @@ def main(study=3):
             nextBeep()
 
 # main study app
-try:
-    # Use default time or set time manually
-    default_user = str(input("Do you want to use the default 3-hour study schedule? (y/n)\n"))
-    if default_user.lower() in ["y", "yes"]:
-        main()
-    else:
-        study_hours = int(input("How many study hours for today? "))
-        print("Good stuff! Let's begin!")
-        time.sleep(2)
-        main(study_hours)
-except:
-    print("Error!")
+def main():    
+    try:
+        # Use default time or set time manually
+        default_user = str(input("Do you want to use the default 3-hour study schedule? (y/n)\n"))
+        if default_user.lower() in ["y", "yes"]:
+            timer()
+        else:
+            study_hours = int(input("How many study hours for today? "))
+            print("Good stuff! Let's begin!")
+            time.sleep(2)
+            timer(study_hours)
 
-exit()
+        # Check if user wants to reuse app
+        repeat_check = input("Are we done for the day? (y/n) ")
+        if repeat_check.lower() in ["n", "no"]:
+            main()
+    except:
+        print("Error!")
+
+    exit()
+
+main()

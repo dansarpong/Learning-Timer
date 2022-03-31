@@ -110,9 +110,8 @@ def main():
         
         # If user wishes to use app again
         repeating = input("Do you wish to use the app again?(y/n) ")
-        if repeating.lower().startswith("n"):
+        if repeating.lower().startswith("y"):
             main()
-
     except:
         print("An error occured! Restart the app and check again.")
         time.sleep(3)

@@ -1,2 +1,3 @@
 # Study Timer
-**This app uses Pomodoro's Technique to facilitate studying**
+
+This is a simple app (in development) that adopts Pomodoro's Technique to enhance studies.

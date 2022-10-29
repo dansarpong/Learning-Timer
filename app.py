@@ -1,4 +1,3 @@
-from timeit import repeat
 import winsound, time
 
 # sound 1
@@ -41,7 +40,7 @@ def TimerA(lessons=3, study=25, recall=25):
     # learning period with break
     for i in range(lessons):
         #learn
-        print("Start first lesson now!\n")
+        print("Start lesson now!\n")
         time.sleep((study*60)-10)
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
 
@@ -51,12 +50,12 @@ def TimerA(lessons=3, study=25, recall=25):
     # recalling period with break
     for i in range(lessons):
         # Recall session
-        print("Start first recall session now!\n")
+        print("Start recall session now!\n")
         time.sleep((recall*60)-10)
         winsound.PlaySound("beep.wav", winsound.SND_FILENAME)
         
         #break
-        while i != (recall-1):
+        if i < (lessons - 2):
             break_time()
 
 
